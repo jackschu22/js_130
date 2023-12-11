@@ -35,21 +35,14 @@ Algorithm:
 */
 
 class SumOfMultiples {
-  constructor(...args) {
-    this.multiples = [...args];
+  constructor(...multiples) {
+    this.multiples = multiples.length > 0 ? [...multiples] : [3, 5];
   }
 
   static to(num) {
-    let multiples = [3, 5];
-    let sum = 0;
+    let newObj = new SumOfMultiples();
 
-    for (let i = 1; i < num; i++) {
-      if (multiples.some(multiple => i % multiple === 0)) {
-        sum += i;
-      }
-    }
-
-    return sum;
+    return newObj.to(num);
   }
 
   to(num) {
